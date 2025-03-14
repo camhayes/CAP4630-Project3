@@ -2,12 +2,18 @@ def main():
     global attributes_file
     global constraints_file
     preferences_file = ""
-    attributes_file = input("Enter attributes file name: ")
-    constraints_file = input("\nEnter hard contstraints file name: ")
+    # TODO: Reestablish this file input at some point
+    # attributes_file = input("Enter attributes file name: ")
+    # constraints_file = input("\nEnter hard contstraints file name: ")
+
+    # testing purposes
+    attributes_file = "../ExampleTestCase/attributes.txt"
+    constraints_file = "../ExampleTestCase/constraints.txt"
     preference_logic_menu()
     
 
 def reasoning_task_menu(preference_choice):
+    encoded_objects_set = []
     while(True):
         print("\nChoose the reasoning task to perform")
         print("1. Encoding")
@@ -24,10 +30,11 @@ def reasoning_task_menu(preference_choice):
         # elif choice == "4":
         # elif choice == "3":
         # elif choice == "2":
-        # elif choice == "1":
+        elif choice == "1":
+            encoded_objects_set = encode_objects()
         else:
             print("Invalid choice. Please try again.\n")
-            
+
 
 def preference_logic_menu():
     looping = True
@@ -54,7 +61,34 @@ def preference_logic_menu():
     reasoning_task_menu(choice)
 
 def encode_objects():
-    
+    file = open(attributes_file, "r")
+    attributes = []
+    attributes_set = []
+    for x in file:
+        attribute = x.split(":")[0] # do I need this for anything? - would be used for titles... i dunno!
+        valuesSet = x.split(":")[1]
+        valuesDelim = valuesSet.split(",")
+        values = []
+        for y in valuesDelim:
+            values.append(y.strip())
+        attributes.append(values)
+    file.close()
+    i = 0
+    attributes_num = len(attributes)
+    for i in range(2**attributes_num):
+        binary_num = bin(i)[2:].zfill(attributes_num)
+        j = 0
+        encoded_obj = []
+        for digit in str(binary_num):
+            if digit == "0":
+                encoded_obj.append(attributes[j][1])
+            else:
+                encoded_obj.append(attributes[j][0])
+            j += 1
+        attributes_set.append(encoded_obj)
+        print("o" + str(i) + " - " + str(encoded_obj))
+        i += 1
+    return attributes_set
 
 # TODO: Feasibility Checking
 # TODO: Show the Table
@@ -62,5 +96,6 @@ def encode_objects():
 # TODO: Omni-optimization
 
 # Enter
+
 if __name__ == "__main__":
     main()

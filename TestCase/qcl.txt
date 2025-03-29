@@ -1,0 +1,5 @@
+salad BT soup IF  
+cheese BT bread IF soda  
+chicken AND cake BT chicken AND ice-cream IF happy  
+decaf BT regular IF grumpy  
+vegetables BT potatoes IF NOT beef

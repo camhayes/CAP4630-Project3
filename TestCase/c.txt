@@ -1,0 +1,6 @@
+NOT soup OR NOT regular
+salad OR cheese OR soda
+NOT beef OR vegetables
+NOT grumpy OR cake
+NOT water OR NOT decaf
+chicken OR beef

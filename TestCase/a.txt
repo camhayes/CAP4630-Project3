@@ -1,0 +1,8 @@
+starter: soup, salad  
+appetizer: bread, cheese  
+drink: soda, water  
+entree: chicken, beef  
+side: potatoes, vegetables  
+dessert: cake, ice-cream  
+coffee: regular, decaf  
+mood: happy, grumpy  

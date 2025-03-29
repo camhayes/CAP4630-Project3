@@ -1,0 +1,3 @@
+salad AND soda, 9
+chicken OR cheese, 5
+vegetables AND NOT grumpy OR decaf AND cake, 8
